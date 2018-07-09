@@ -6,6 +6,9 @@ import bodyParser from 'body-parser';
 import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
+import createWallet from './createWallet';
+import getBalance from './getBalance';
+import transaction from './transaction';
 import config from './config.json';
 
 let app = express();
@@ -30,7 +33,13 @@ initializeDb( db => {
 	app.use(middleware({ config, db }));
 
 	// api router
-	app.use('/api', api({ config, db }));
+	app.use('/createWallet', createWallet({ config, db}));
+	app.use('/getBalance', getBalance({ config, db}));
+	app.use('/getBalance/:id', getBalance({ config, db}));
+	app.use('/transaction', transaction({ config, db}));
+
+	// app.use('/api', api({ config, db }));
+
 
 	app.server.listen(process.env.PORT || config.port, () => {
 		console.log(`Started on port ${app.server.address().port}`);
