@@ -28,9 +28,9 @@ API Methods
 
 This API has three mothods `createWallet`, `getBalance` & `transaction`.
 
-- createWallet: receives no params and returns an object with the information of an account created, private key and public address.
-- getBalance: receives the public address param as getbalance/:id and returns tha balance in wei.
-- transaction: generates a transaction between two accounts, it receives JSON parameters for address, destionation & amount in wei, and returns an object with the result of the transaction.
+- createWallet: GET methot that receives no params and returns an object with the information of an account created, private key and public address.
+- getBalance: GET method that receives the public address param as getbalance/:id and returns tha balance in wei.
+- transaction: POST method that generates a transaction between two accounts, it receives JSON parameters for address, destionation & amount in wei, and returns an object with the result of the transaction.
 
 ```
 {
